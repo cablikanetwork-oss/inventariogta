@@ -1,0 +1,27 @@
+# ==============================================================================
+# Render Blueprint — Grupo Tu Andamio (https://inventariogta.onrender.com)
+# ==============================================================================
+databases:
+  - name: inventariogta-db
+    databaseName: inventory_db
+    user: inventory_user
+    plan: free
+
+services:
+  - type: web
+    name: inventariogta
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: inventariogta-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "false"
+      - key: STATIC_DIST_DIR
+        value: "/app/static_dist"

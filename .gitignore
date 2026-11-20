@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Environment & OS
+.env
+.env.local
+.DS_Store
+Thumbs.db
+
+# Local certificates
+frontend/certs/*.key
